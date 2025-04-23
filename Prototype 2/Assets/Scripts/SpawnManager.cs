@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {   
-    public GameObject[] animalPrefabs;
+    public GameObject[] ballPrefabs;
     private float spawnRangeX = 20;
     private float spawnPosZ = 20;
     private float startDelay = 2;
@@ -11,20 +11,20 @@ public class SpawnManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
+        InvokeRepeating("SpawnRandomBall", startDelay, spawnInterval);
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
-
+   
     }
     
-    void SpawnRandomAnimal() 
+    void SpawnRandomBall() 
     {
-        int animalIndex = Random.Range(0, animalPrefabs.Length);
+        int ballIndex = Random.Range(0, ballPrefabs.Length);
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
-        Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+        Instantiate(ballPrefabs[ballIndex], spawnPos, ballPrefabs[ballIndex].transform.rotation);
     }
     
 }
